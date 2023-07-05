@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST request</title>
+</head>
+<body>
+    
+
+    <script>
+        //make a post request to create a new user on the API
+        const newUser = {               // this is an object literal as we write out exactly how the object looks like
+            "name": "John",
+            "job": "Team Leader"
+        }
+        const myRequestSettings = {
+            method: 'POST',
+            body: JSON.stringify(newUser)
+        }
+
+        fetch('https://reqres.in/api/users', myRequestSettings)  // this is the option object, we pass in an object with specific option that we choose
+         // the option parameter is depending on the API, it's not mandatory. 
+            .then((res) => {
+                    console.log(res);
+                    return res.json();
+                })
+            .then((data) => {console.log(data)});
+            // when we console log it, we can see that the request was successfull, we get response 201
+
+    </script>
+</body>
+</html>
